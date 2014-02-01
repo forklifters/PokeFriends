@@ -25,7 +25,7 @@ $(document).ready(function() {
 	$("#play").click(function() {
 		//playSlideShow();
 		// console.log("playing");
-		$("#play").hide();
+		//$("#play").hide();
 		$("body").animate({
 			'background-position-y': '30%'
 		}, "slow");
