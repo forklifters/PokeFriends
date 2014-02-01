@@ -1,0 +1,68 @@
+h1 {
+	color: white;
+
+	font-family: 'Owswald',sans-serif;
+	font-weight:700;
+	font-size: 300%;
+	text-transform:uppercase;
+	text-align: center;
+}
+h2 {
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	font-weight:300;
+	text-align: center;
+}
+p {
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	position:absolute;
+    top: 650px;
+	left: 580px;
+}
+body {
+	background: url('http://i.minus.com/jID7Fwl1fmw2t.jpg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow-y:hidden;
+	overflow-x:hidden;
+}
+
+#login-wrapper {
+	position: relative;
+	left: 680px;
+	top: 245px;
+}
+
+#play {
+	position: absolute;
+	left: 621px;
+	top: 410px;
+    background: url('http://i4.minus.com/jboHHgEoLtuHUu.png') no-repeat top left;
+    background-size: 200px 200px;
+    height:200px;
+    width: 200px;
+    border: 0px;
+}
+#play:active {
+    background: url('http://i5.minus.com/jHCM5Iulr4sYA.png') no-repeat top left;
+    background-size: 200px 200px;
+    height:200px;
+    width: 200px;
+    border: 0px;
+}
+
+
+
+#slideshow {
+	position:relative;
+	left: 563px;
+}
+
+#video {
+	position: absolute;
+	left: 475px;
+	top: 70px;
+}
