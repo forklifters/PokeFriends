@@ -26,8 +26,9 @@ $(document).ready(function() {
 		//playSlideShow();
 		// console.log("playing");
 		//$("#play").hide();
+		$("h2").fadeOut(1000);
 		$("body").animate({
-			'background-position-y': '30%'
+			'background-position-y': '20%'
 		}, "slow");
 		myVideo.style.opacity = 1;
 		myVideo.play();

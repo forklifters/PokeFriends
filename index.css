@@ -54,14 +54,7 @@ body {
 	position: absolute;
 	right: 0px;
 	top: 100px;
-    background: url('http://i4.minus.com/jboHHgEoLtuHUu.png') no-repeat top left;
-    background-size: 200px 200px;
-    height:200px;
-    width: 200px;
-    border: 0px;
-}
-#play:active {
-    background: url('http://i5.minus.com/jHCM5Iulr4sYA.png') no-repeat top left;
+    background: url('http://i.minus.com/jpvWujy6Zz31i.png') no-repeat top left;
     background-size: 200px 200px;
     height:200px;
     width: 200px;
@@ -73,6 +66,7 @@ body {
 #slideshow {
 	position:relative;
 	left: 563px;
+	top: -90px;
 }
 
 #video {
