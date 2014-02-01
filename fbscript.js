@@ -23,7 +23,7 @@ window.fbAsyncInit = function() {
 				if (index < 150) {
 					var divString = "<div style='display:none;position:absolute;' id= " + index + ">" +
 					"<img width='300' height='300' id=" + index + " src=" + friend.picture.data.url + "></img>" +
-					"<br><span style='font-size:50px;color:blue'>" + friend.first_name + "</span>"+
+					"<br><span style=" + "font-family:'Oswald',sans-serif;font-size:50px;color:black;>" + friend.first_name + "</span>"+
 					"</div>"
 					$("#slideshow").append(divString);
 					wordList.push(friend.first_name);

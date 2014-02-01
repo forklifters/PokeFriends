@@ -26,10 +26,11 @@ $(document).ready(function() {
 		//playSlideShow();
 		// console.log("playing");
 		//$("#play").hide();
-		$("h2").fadeOut(1000);
+		
 		$("body").animate({
 			'background-position-y': '20%'
 		}, "slow");
+		$("h2").hide();
 		myVideo.style.opacity = 1;
 		myVideo.play();
 		playVoiceAudio();
@@ -53,8 +54,8 @@ function playVoiceAudio() {
 	
         filter = 2400  
         start = 17790 - filter - 512
-        start2 = 38200 - filter
-        start3 = 51500 - filter
+        start2 = 38200 - filter - 100
+        start3 = 51500 - filter - 100
         start4 = 68000 - filter
         interval = 450
        
@@ -96,8 +97,12 @@ function playVoiceAudio() {
 				showNextPicture();
                 meSpeak.speak(wordList4[0]);
                 wordList4.splice(0, 1);
-                callOuts(wordList4, 512);
+                callOuts2(wordList4, 512);
         }, start4);
+
+      	setTimeout(function() {
+      		myVideo.style.opacity = 0;
+      	}, 83900)
 }
 
 function callOuts(stringList, interval) {
@@ -107,6 +112,23 @@ function callOuts(stringList, interval) {
 			if (stringList.length == 1) {
 				setTimeout(function () {
 					myVideo.style.opacity = 1;
+					hideCurrentPicture();
+				}, interval)
+			}
+			meSpeak.speak(stringList[0]);
+			stringList.splice(0, 1);
+		}, interval*(i+1));
+	}
+}
+
+function callOuts2(stringList, interval) {
+	for (var i = 0; i < stringList.length; i++) {
+		setTimeout(function () {
+			showNextPicture();
+			if (stringList.length == 1) {
+				setTimeout(function () {
+					myVideo.style.opacity = 1;
+					meSpeak.speak("pikachu");
 					hideCurrentPicture();
 				}, interval)
 			}
