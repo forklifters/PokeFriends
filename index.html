@@ -11,9 +11,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<h1>Facebook Rap</h1>
+	<img id="title" src = "http://i1.minus.com/jbfLqmzV5d8K2p.png"/>
+	<div id="login-wrapper">
+		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+	</div>
 	<h2>PokeRap with your Facebook Friends.</h2>
-	<button type="button" id="play"></button>
+	
+		<button type="button" id="play">Rap!</button>
+
 	<div id="slideshow">
 	</div>
 	<audio id="myAudio"
@@ -25,9 +30,6 @@
 	  <source src="video.mp4" type="video/mp4">
 	Your browser does not support the video tag.
 	</video>
-	<div id="login-wrapper">
-		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
-	</div>
 	<div id="fb-root"></div>
 	<div style="display:none" id="first-names"></div>
 	<p>Miko Bautista, Renzo Bautista, Rishi Khanna, Alex Tsai</p>

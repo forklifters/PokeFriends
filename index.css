@@ -1,7 +1,3 @@
-html {
-	height: 100%;
-}
-
 h1 {
 	color: white;
 
@@ -25,34 +21,41 @@ p {
 	left: 580px;
 }
 
+h2 {
+	position: relative;
+	top: -70px;
+}
+
 body {
-	display: block;
-	background: url('http://i.minus.com/jID7Fwl1fmw2t.jpg') center;
-	background-size: auto 100%;
-	height: 100%;
-	width: 100%;
-	margin: 0;
+	background: url('http://i.minus.com/jID7Fwl1fmw2t.jpg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow-y:hidden;
+	overflow-x:hidden;
+}
+
+#title {
+    display: block;
+    margin: 70px auto 0px auto;
 }
 
 #login-wrapper {
-	position: relative;
-	left: 680px;
-	top: 245px;
+	display: block;
+	left: 300px;
 }
 
 #play {
-	display: block;
 	position: absolute;
-	top: 70px;
-	background: url('http://i4.minus.com/jboHHgEoLtuHUu.png') no-repeat center center;
-	background-size: 160px auto;
-	width: 100%;
-	height: 100%;
-	border: 0px;
-	margin-left: auto;
-	margin-right: auto;
+	right: 0px;
+	top: 230px;
+    background: url('http://i4.minus.com/jboHHgEoLtuHUu.png') no-repeat top left;
+    background-size: 200px 200px;
+    height:200px;
+    width: 200px;
+    border: 0px;
 }
-
 #play:active {
     background: url('http://i5.minus.com/jHCM5Iulr4sYA.png') no-repeat top left;
     background-size: 200px 200px;

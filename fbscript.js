@@ -17,7 +17,7 @@ window.fbAsyncInit = function() {
 	  console.log(response.authResponse.userID);
 	  FB.api('/me/friends', {fields: ['first_name', 'picture']}, function(response) {
         if(response.data) {
-			$("#login-wrapper").hide();
+			$("#play").show();
 			var firstnameArray = [];
             $.each(response.data,function(index,friend) {
 				if (index < 150) {

@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-	
+	$("#play").hide();
 	myVideo=document.getElementById("video");
 	myVideo.style.opacity = 0;
 	myVideo.muted = true;
