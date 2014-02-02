@@ -1,66 +1,98 @@
 
 $(document).ready(function() {
-	$("#play").hide();
-	myVideo=document.getElementById("video");
-	myVideo.style.opacity = 0;
-	myVideo.muted = true;
-	// wordList = ['miko', 'renzo', 'alex', 'rishi', 'rachel', 'baek', 'raphael', 'peter',
-	// 	            'david', 'heidi', 'shaq', 'emily', 'charles', 'amanda', 'moko', 'phil',
-	// 	            'jason', 'bill', 'mark', 'thomas', 'steve', 'burt', 'richard', 'sid',
-	// 	            'neil', 'christian', 'jesus', 'mary', 'joseph', 'javier', 'george', 'carol',
-	// 	            'chris', 'yoyo', 'donna', 'sarabeth', 'alvin', 'matthew', 'hanson', 'ben',
-	// 	            'ron', 'nat', 'olga', 'adil', 'andres', 'katie', 'lenny', 'joe',
-	// 	            'luke', 'lucas', 'stefan', 'andrew', 'zach', 'manny', 'tiffany', 'willa',
-	// 	            'walter', 'jordan', 'jess', 'aaron', 'curtis', 'connie', 'ivan', 'francis'];
 	
-	showId = 0;
-	
+	/* Perform some caching */
+	loggedIn = false;
 	meSpeak.loadConfig("mespeak/mespeak_config.json");
 	meSpeak.loadVoice('mespeak/voices/en/en-us.json');
+	myVideo = document.getElementById("video");
+	$("#video").hide();
+	$("#slideshow").hide();
+	$("#share-wrapper").hide();
+	myVideo.muted = true;
+	showId = 0;
 	
-	for (var i = 0; i < wordList.length; i++) {
-		meSpeak.speak(wordList[i], {volume:0});
-	}
+	/* A lot of caching to be done... */
+	filter = 2400  
+    start = 17790 - filter - 512
+    start2 = 38200 - filter - 100
+    start3 = 51500 - filter - 100
+    start4 = 68000 - filter
+    interval = 450
 	
-	$("#play").click(function() {
-		//playSlideShow();
-		// console.log("playing");
-		//$("#play").hide();
+	/* Automatically resize text */
+	performTextResize();
+	
+	/* Hover in and our for the Pikachu button */
+	$("#playButton").mouseenter(function(event) {
+		if (!loggedIn) {
+			$("#popover").popover('show');
+	}});
 		
-		$("body").animate({
-			'background-position-y': '20%'
-		}, "slow");
-		$("h2").hide();
-		myVideo.style.opacity = 1;
-		myVideo.play();
-		playVoiceAudio();
-		playBackgroundAudio();
-		//$("#play").fadeOut(1000);
+	$("#playButton").mouseleave(function(event) {
+		$("#popover").popover('hide');
 	});
+	
+	/* Begin the entire show upon clicking Pikachu */
+	$("#playButton").click(function(event) {
+		if (loggedIn) {
+			$("#video").show();
+			$("#video").animate({
+				'left': '25%'
+			}, 1500);
+			$("#header").animate({
+							'left': '-100%'
+						}, 1500, function() {
+							$("#slideshow").show();
+							$("#share-wrapper").show();
+							myVideo.play();
+							playVoiceAudio();
+							playBackgroundAudio();
+						});
+		}
+	});
+	
+	
 
-	console.log("hey!");
-	console.log($("#first-names").html());
-	console.log("asdf");
 });
+
+/* Dynamically resize text when scaling browser */ 
+function performTextResize() {
+	var $body = $('body'); //Cache this for performance
+	var setBodyScale = function() {
+		var scaleSource = $body.width(),
+			scaleFactor = 0.2,                     
+			maxScale = 600,
+			minScale = 30; //Tweak these values to taste
+		var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
+ 		if (fontSize > maxScale) fontSize = maxScale;
+		if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
+		$('#secondary').css('font-size', fontSize + '%');
+	}
+	$(window).resize(function(){
+		setBodyScale();
+	});
+	//Fire it when the page first loads:
+	setBodyScale();
+}
 
 function playBackgroundAudio() {
 	var myAudio = document.getElementById("myAudio");
-	//myAudio.volume = 0.5;
-	console.log(myAudio);
 	myAudio.play();
 }
 
 function playVoiceAudio() {
+		/* Perform some caching here */
+		wordList1 = wordList.slice(0, 16);
+		wordList2 = wordList.slice(16, 32);
+		wordList3 = wordList.slice(32, 48);
+		wordList4 = wordList.slice(48, 64);
 	
-        filter = 2400  
-        start = 17790 - filter - 512
-        start2 = 38200 - filter - 100
-        start3 = 51500 - filter - 100
-        start4 = 68000 - filter
-        interval = 450
-       
-        wordList1 = wordList.slice(0, 16);
-
+		/* Let the computer practice speaking */
+		// for (var i = 0; i < wordList.length; i++) {
+		// 	meSpeak.speak(wordList[i], {volume:0});
+		// }
+		
         setTimeout(function() {
 				myVideo.style.opacity = 0;
 				$("#0").show();
@@ -70,8 +102,6 @@ function playVoiceAudio() {
                 callOuts(wordList1, 512);
         }, start);
  
-        wordList2 = wordList.slice(16, 32);
- 
         setTimeout(function() {
 				myVideo.style.opacity = 0;
 				showNextPicture();
@@ -80,8 +110,6 @@ function playVoiceAudio() {
                 callOuts(wordList2, 512);
         }, start2);
  
-        wordList3 = wordList.slice(32, 48);
- 
         setTimeout(function() {
 				myVideo.style.opacity = 0;
 				showNextPicture();
@@ -89,8 +117,6 @@ function playVoiceAudio() {
                 wordList3.splice(0, 1);
                 callOuts(wordList3, 512);
         }, start3);
- 
-        wordList4 = wordList.slice(48, 64);
  
         setTimeout(function() {
 				myVideo.style.opacity = 0;
@@ -102,7 +128,7 @@ function playVoiceAudio() {
 
       	setTimeout(function() {
       		myVideo.style.opacity = 0;
-      	}, 83900)
+      	}, 83800)
 }
 
 function callOuts(stringList, interval) {

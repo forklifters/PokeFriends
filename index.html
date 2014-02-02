@@ -3,36 +3,49 @@
 <head>
 	<title>PokeFriends</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="fbscript.js"></script>
-	<script type="text/javascript" src="index.js"></script>
-	<script type="text/javascript" src="mespeak/mespeak.js"></script>
-	
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href='http://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<img id="title" src = "http://i1.minus.com/jbfLqmzV5d8K2p.png"/>
-	<div id="login-wrapper">
-		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
-	</div>
-	<h2>PokeRap with your Facebook Friends.</h2>
 	
-		<button type="button" id="play"></button>
-
+	<div id="header">
+		<img id="primary" src = "http://i1.minus.com/jbfLqmzV5d8K2p.png"/>
+		<div id="secondary">PokeRap with your Facebook Friends.</div>
+		<div id="login-wrapper">
+			
+			<fb:login-button size="xlarge" show-faces="true" width="50%" max-rows="3">Login with Facebook</fb:login-button>
+			
+			<div id="fb-root"></div>
+		</div>
+		<button type="button" id="playButton"></button>
+		<a href="#" id="popover" rel="popover" data-placement="bottom"
+			data-content="You must login with Facebook first!"data-original-title="Pika pi!"></a>
+	</div>
+	
+	<div id="share-wrapper">
+		<div class="fb-share-button" data-href="" data-type="button_count">Share on Facebook</div>
+	</div>
+	
+	<video id="video" width="1000" height="1000">
+		<source src="media/video.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+			
 	<div id="slideshow">
 	</div>
-	<audio id="myAudio"
-	 <source src="audio.mp3" type='audio/mp3'>
-	 	Your user agent does not support the HTML5 Audio element.
+	<audio id="myAudio">
+		 <source src="media/audio.mp3" type='audio/mp3'>
+		 Your user agent does not support the HTML5 Audio element.
 	</audio>
-	
-	<video id="video" width="500" height="500">
-	  <source src="video.mp4" type="video/mp4">
-	Your browser does not support the video tag.
-	</video>
-	<div id="fb-root"></div>
-	<div style="display:none" id="first-names"></div>
-	<p>Miko Bautista, Renzo Bautista, Rishi Khanna, Alex Tsai</p>
+		
+	<div id="footer">
+		Miko Bautista, Renzo Bautista, Rishi Khanna, Alex Tsai
+	</div>
 </div>
 </body>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="fbscript.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="mespeak/mespeak.js"></script>
 </html>
